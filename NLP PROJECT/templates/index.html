@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YouTube Comment Toxicity Detector</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #e53935; 
+    --text-light: #f4f4f4;
+    --background-start: #1c1c1c;
+    --background-end: #333333;
+    --shadow-dark: rgba(0, 0, 0, 0.4);
+    --shadow-light: rgba(255, 255, 255, 0.05);
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+    color: var(--text-light);
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .app-container {
+    background: var(--bg-card);
+    border-radius: 24px;
+    padding: 60px 50px;
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 0 20px 40px var(--shadow-deep),
+                0 0 15px var(--shadow-light) inset;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    opacity: 0.85;
+  }
+
+  textarea {
+    width: 95%;
+    height: 150px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    resize: none;
+    font-size: 16px;
+    margin-bottom: 25px;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) inset;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+  }
+
+  button {
+    background: var(--accent-blue);
+    color: var(--text-light);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+  }
+
+  button:hover {
+    background: #4dd0e1;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 188, 212, 0.6);
+  }
+
+  .result-box {
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 18px;
+    padding: 30px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px var(--shadow-deep) inset;
+  }
+
+  .result-header {
+    font-size: 20px;
+    color: var(--accent-blue);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .result-content p {
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+
+  .result-content strong {
+    color: var(--text-light);
+    display: inline-block;
+    min-width: 150px;
+  }
+
+  .toxic-text {
+    color: var(--primary-color);
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(229, 57, 53, 0.15);
+  }
+
+  .non-toxic-text {
+    color: #4dff88;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(77, 255, 136, 0.15);
+  }
+</style>
+</head>
+<body>
+<div class="app-container">
+  <h1>💬 YouTube Comment Toxicity Detector</h1>
+  <p>Check if a YouTube comment is toxic or safe using NLP</p>
+
+  <form action="/predict" method="post">
+    <textarea name="comment" placeholder="Enter your comment here..." required autofocus>{{ comment or '' }}</textarea><br>
+    <button type="submit">Analyze</button>
+  </form>
+
+  {% if prediction %}
+  <div class="result-box">
+    <h3 class="result-header">🧾 Result:</h3>
+    <div class="result-content">
+      <p><strong>Prediction:</strong> 
+        <span class="{{ 'toxic-text' if 'Toxic' in prediction else 'non-toxic-text' }}">{{ prediction }}</span>
+      </p>
+      <p><strong>Toxic Probability:</strong> {{ probability }}</p>
+      <p><strong>Cleaned Text:</strong> {{ cleaned }}</p>
+    </div>
+  </div>
+  {% endif %}
+</div>
+</body>
+</html>

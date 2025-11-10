@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YouTube Comment Toxicity Detector</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #e53935; 
+    --text-light: #f4f4f4;
+    --background-start: #1c1c1c;
+    --background-end: #333333;
+    --shadow-dark: rgba(0, 0, 0, 0.4);
+    --shadow-light: rgba(255, 255, 255, 0.05);
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+    color: var(--text-light);
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+  }
+  .card {
+    background: rgba(45, 45, 45, 0.85);
+    padding: 60px 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 15px 30px var(--shadow-dark), 0 0 10px var(--shadow-light) inset;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+  }
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 50px;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+  button {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 16px 45px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
+  }
+  button:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(229, 57, 53, 0.6);
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>💬 YouTube Comment Toxicity Detector</h1>
+    <p>Check if a YouTube comment is toxic or safe using NLP</p>
+    <a href="/home"><button>Start</button></a>
+  </div>
+</body>
+</html>

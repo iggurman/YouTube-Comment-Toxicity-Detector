@@ -1,0 +1,82 @@
+<style>
+  :root {
+    --primary-color: #e53935; /* A vibrant, modern red */
+    --secondary-color: #f1f2f6; /* Off-white for contrast */
+    --background-start: #1c1c1c; /* Dark charcoal/black for sleekness */
+    --background-end: #333333;
+    --text-light: #f4f4f4;
+    --shadow-dark: rgba(0, 0, 0, 0.4);
+    --shadow-light: rgba(255, 255, 255, 0.05);
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    /* Dark, subtle background gradient for a premium feel */
+    background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
+    color: var(--text-light);
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  /* Card container for a contained, professional look */
+  .card {
+    background: rgba(45, 45, 45, 0.85); /* Slightly lighter dark background */
+    padding: 60px 40px;
+    border-radius: 20px; /* Softer, larger border-radius */
+    max-width: 600px;
+    width: 90%;
+    /* Subtle box-shadow for depth (like floating) */
+    box-shadow: 0 15px 30px var(--shadow-dark),
+                0 0 10px var(--shadow-light) inset;
+    backdrop-filter: blur(5px); /* Soft glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  h1 {
+    font-size: 38px;
+    font-weight: 700; /* Bolder title */
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    color: var(--primary-color); /* Highlight the title */
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 300; /* Lighter weight for body text */
+    margin-bottom: 50px;
+    line-height: 1.6;
+    opacity: 0.85; /* Slight transparency for softness */
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 16px 45px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    /* Subtle button shadow */
+    box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
+  }
+
+  button:hover {
+    /* Slightly lighter on hover */
+    background: #ff5252;
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(229, 57, 53, 0.6);
+  }
+</style>
